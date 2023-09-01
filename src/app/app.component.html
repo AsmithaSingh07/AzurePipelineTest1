@@ -1,0 +1,80 @@
+<!-- <p>Hi this is Asmitha...........</p>
+<app-demo1></app-demo1>
+<app-demonstration1></app-demonstration1>
+My name is {{name}} and age is {{age}} -->
+<div class="container-fluid">
+  <div class="row" style="height: 20%;border: px solid #d1eae2;">
+
+
+    <div class="col-sm-2 col-md-2 col-xs-2"
+      style="background-color: #1A1A1D;float: left;width: 10%;height: 100px;display: flex;
+      justify-content: center;align-items: center;">
+      <img src="assets/EC2.JPG" style="height: 80px;width: 80%;border-radius: 20px;">
+    </div>
+
+    <div class="col-sm-8 col-md-8 col-xs-8" style="font-size: xx-large;color:#116466;font-family:Georgia, 'Times New Roman', Times, serif;
+    float: left;background-color:#1A1A1D;text-align: center;padding: 0%;width: 80%;height: 100px;display: flex;
+    justify-content: center;align-items: center;">
+      <span><b>Engineering Counselling</b></span>
+    </div>
+
+    <div class="col-sm-2 col-md-2 col-xs-2"
+      style="background-color: #1A1A1D;float: right;width: 10%;height: 100px;">
+      <p style="height: 8%;text-align: center;width: 100%;">
+       <span class="glyphicon glyphicon-search" ></span>
+        <!-- <button type="button" class="btn btn-default">
+          <span class="glyphicon glyphicon-search"></span> Search
+        </button> -->
+        <marquee behavior="scroll" direction="right"><b style="font-size: 20px;color: white;"> ADMISSION OPEN</b>
+        </marquee>
+      </p>
+    </div>
+
+
+
+
+  </div>
+  <div class="row" style="background-color: #116466;">
+
+    <div class="col-sm-3 col-md-3 col-xs-3"
+      style="background-color: #116466;float: left;width: 20%;">
+      <br>
+      <a href="" style="text-decoration:none;color:black;font-size: large;">Home</a> <br>
+      
+      <hr style="background-color: navy;">
+
+      <a [routerLink]="['']"> </a> <br>
+      <a routerLinkActive="active" [routerLink]="['Welcome']">Welcome</a>
+
+
+      <hr style="background-color: navy;">
+      <!-- <a href="" target="display" style="text-decoration:none;color:black;font-size: large;">Bye</a> <br> -->
+      <a routerLinkActive="active" [routerLink]="['Bye']">Bye</a>
+      <hr style="background-color: navy;">
+    </div>
+    <div class="col-sm-6 col-md-6 col-xs-6"
+      style="background-color: #1A1A1D;float: left;width: 60%;">
+      <router-outlet>
+      </router-outlet>
+    </div>
+    <div class="col-sm-3 col-md-3 col-xs-3"
+      style="background-color: #116466;float: left;width: 20%;">
+      <br>
+      <marquee behavior="scroll" direction="left"> <img src="assets/EC3.JPG" alt="adv" style="height: 200px;" />
+      </marquee>
+      <marquee behavior="scroll" direction="right">
+        <p style="font-size: medium;">Counselling starts on May 21st 2022 </p>
+      </marquee>
+
+    </div>
+
+
+  </div>
+
+</div>
+
+
+
+<!-- <li class="active" ><a [routerLink]="['']">Home</a></li>
+                <li><a routerLinkActive="active" [routerLink]="['component1']">Component 1</a></li>
+                <li><a routerLinkActive="active" [routerLink]="['component2']">Component 2</a></li> -->

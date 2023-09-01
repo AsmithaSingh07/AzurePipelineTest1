@@ -1,0 +1,231 @@
+<p>
+  hii {{name}} {{msg}}
+</p>
+<input type="text" [disabled]="isDisabled" style="background-color: tomato;" /> &nbsp;
+<input type="button" (click)="disable()" value="Enable/Disable" style="background-color: tomato;" />
+<br><br>
+<!-- <p (mouseout)="disable()" class="btn-primary btn-sm">Enable/Disable</p> -->
+
+
+
+<div>
+  <input type="button" value="Hi!!" style="background-color: tomato;" (click)="display()" />
+  &nbsp;
+  <span *ngIf="isDisplay"> Welcome Home</span>
+</div>
+
+
+
+<br>
+<div>
+  <!-- <input type="button" value="Hi!!" style="background-color: tomato;" (click)="display1()"/>
+  &nbsp; -->
+  <span *ngIf="isDisplay1;then login;else logout"> Welcome Home</span>
+  <div>
+    <ng-template #login> <input type="button" style="background-color: tomato;" value="Pleased to have you"
+        (click)="display1()"></ng-template>
+  </div>
+  <div>
+    <ng-template #logout> <input type="button" style="background-color: purple;" value="Have a wonderful day"
+        (click)="display1()"></ng-template>
+  </div>
+</div>
+
+
+
+
+<!-- <br>
+<!-- <p>Even Numbers:</p>
+<div *ngFor="let n of number">
+  <div *ngIf="n%2==0">
+  <p>{{n}}</p>
+  <!-- <li>{{n}}</li> -->
+<!-- </div>
+</div> -->
+
+
+<br>
+<p>Display Array of user:</p>
+<input type="button" value="User List" style="background-color: tomato;" (click)="displayUser()" />
+<div *ngFor="let u of user">
+  <p>Name of the user is: {{u.name}} and their age is {{u.age}}</p>
+</div>
+
+
+<!-- <p>4.ngfor statement using value object</p>
+<input
+  type="button"
+  style="background-color: red"
+  value="user"
+  (click)="displayUser()"
+/>
+<div *ngFor="let n of user">
+  <p>my name is {{ n.name }} and my age is {{ n.age }}</p>
+</div> -->
+
+<br>
+<p>Switch Case</p>
+<input type="button" value="September" style="background-color: tomato;" (click)="monthName(9)">
+<input type="button" value="May" style="background-color: tomato;" (click)="monthName(5)">
+<div [ngSwitch]="month">
+  <div *ngSwitchCase="'September'">Asmi's Birthday is in September</div>
+  <div *ngSwitchCase="'May'">Alan's Birthday is in May</div>
+  <div *ngSwitchDefault>Birthday Month</div>
+
+
+</div>
+
+
+<br>
+<form>
+  <p>Your Name is {{name}}</p>
+  <p>Your Age is {{age}}</p>
+  Name:<input type="text" name="name" [(ngModel)]="name" style="background-color:tomato; color: black;" />
+  Age:<input type="text" name="age" [(ngModel)]="age" style="background-color: tomato; color: black;" />
+
+</form>
+
+<!-- <div class="form-group">
+  <label for="name">Name</label>
+  <input required minlength="3" maxlength="10"
+</div> -->
+
+
+<!-- <p>form validation</p>
+<div class="form-group">
+  <label for="firstName">First Name</label>
+  <input required minlength="3" maxlength="10" ngModel name="firstName" type="text" #firstn="ngModel"
+    class="form-control" id="firstName" style="color: black;" />
+  <div *ngIf="firstn.errors && firstn.errors['required']" style="color: red;">Name is required</div>
+  <div *ngIf="firstn.errors && firstn.errors['minlength']" style="color: yellow;">Name must be minimum of three
+    characters</div>
+  <div *ngIf="firstn.errors && firstn.errors['maxlength']">name must be within 10 char</div>
+</div>
+
+<p>Validating Name</p>
+<form #login1="ngForm" (ngsubmit)="submit(login1)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input required minlength="3" ngModel name="name" type="text" #name1="ngModel" class="form-control" id="name"
+      style="color: black;width:200px" />
+  
+    <div *ngIf="name1.untouched  && name1.errors && name1.errors['required']" style="color: red;">Name is Required</div>
+    <div *ngIf="name1.errors && name1.errors['minlength']" style="color: red;">Enter minimum 3 characters </div>
+  </div>
+  <div>
+    <input type="button" [disabled]="!login1.valid" value="submit" class="btn btn-primary" (click)="onSubmit()" />
+  </div>
+</form>
+
+<br>
+<p>Checking for validation</p>
+<form #check="ngForm" >
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input required minlength="3" ngModel name="name" type="text" #name1="ngModel" class="form-control" id="name"
+      style="color: black;width:200px" />
+    <div *ngIf="name1.untouched && name1.errors && name1.errors['required']" style="color: red;"> Mandatory</div>
+    <div *ngIf="name1.errors && name1.errors['minlength']" style="color: red;">Enter minimum 3 characters </div>
+
+    <br>
+    <div>
+      <input type="button" [disabled]="!check.valid" value="submit" class="btn btn-primary"  />
+    </div>
+  </div>
+</form>
+
+
+
+
+
+<p class="form-text text-muted">Validating E-mail</p>
+<form #login="ngForm" (ngsubmit)="submit(login)">
+  <div class="form-group">
+    <label for="email">Mail ID</label>
+    <input required pattern="[a-z0-5]+" ngModel name="email" type="text" #mail1="ngModel" class="form-control" id="name"
+      style="color: black;width:200px" />
+    
+
+    <div *ngIf="mail1.errors && mail1.errors['required']" style="color: red;"> Required Field</div>
+    <div *ngIf="mail1.errors && mail1.errors['pattern']" style="color: red;">Pattern Mismatch </div>
+
+    <div *ngIf="!mail1?.valid && (mail1?.dirty || mail1?.touched)" style="color: red;">invalid </div>
+  </div>
+  <div>
+    <input type="button" [disabled]="!mail1.valid" value="submit" class="btn btn-primary" />
+
+  </div>
+
+
+</form>
+
+<br>
+
+<strong>Angular 2 Form Validations Demo</strong>
+<form #login2="ngForm" (ngsubmit)="submit(login2)">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      required
+      minlength="3"
+      ngModel
+      name="name"
+      type="text"
+      #name1="ngModel"
+      class="form-control"
+      id="name"
+      style="color: black; width: 200px"
+    />
+    <div *ngIf="name1.untouched && name1.errors && name1.errors['required']">
+      Name is mandatory
+    </div>
+    <div *ngIf="name1.errors && name1.errors['minlength']" style="color: red">
+      Enter minimum 3 characters
+    </div>
+  </div>
+  <div>
+    <input
+      type="reset"
+      value="submit"
+      class="btn btn-primary"
+      (click)="onSubmit()"
+      [disabled]="!login2.valid"
+    />
+  </div>
+</form>
+
+<br> -->
+
+
+<strong>7.Angular 2 Form Validations Demo</strong>
+<form #login1="ngForm">
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      required
+      minlength="3"
+      ngModel
+      name="name"
+      type="text"
+      #name1="ngModel"
+      class="form-control"
+      id="name"
+      style="color: black; width: 200px"
+    />
+    <div *ngIf="name1.untouched && name1.errors && name1.errors['required']">
+      Name is mandatory
+    </div>
+    <div *ngIf="name1.errors && name1.errors['minlength']" style="color: red">
+      Enter minimum 3 characters
+    </div>
+  </div>
+  <div>
+    <input
+      type="reset"
+      value="submit"
+      class="btn btn-primary"
+      [disabled]="!login1.valid"
+    />
+  </div>
+</form>
+

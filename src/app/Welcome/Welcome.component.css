@@ -1,0 +1,22 @@
+*{
+    color: white;
+}
+
+
+.ng-invalid.ng-touched:not(form){
+    border:3px solid red;
+}
+
+
+.ng-valid.ng-touched:not(form){
+    border:3px solid greenyellow;
+}
+#firstName{
+    border:3px solid greenyellow;
+}
+
+.alert-danger{
+    background-color: red;
+    color:white;
+}
+

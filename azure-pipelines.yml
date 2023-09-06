@@ -21,21 +21,18 @@ steps:
     inputs:
       command: 'install'
       # customCommand: 'npm install'
-  
-  - task: Npm@1  
-    displayName: Build  
-    inputs: 
-      command: custom  
-      verbose: false  
-      customCommand: 'run build' 
-    
-  - task: CopyPublishBuildArtifacts@1
+
+  - task: AngularCLI@1
     inputs:
-      CopyRoot: '/dist'
-      Contents: '**'
-      ArtifactName: 'asmiangularsample'
-      ArtifactType: 'Container'
+      command: 'build'
+      DisableAnalytics: false
+    
   
-  - task:
- 
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(Build.SourcesDirectory)/dist'
+      Contents: '**'
+      TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+  
       

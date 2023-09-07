@@ -34,5 +34,11 @@ steps:
       Contents: '**'
       TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
-  
+  - task: AzureRmWebAppDeployment@4
+    inputs:
+      ConnectionType: 'AzureRM'
+      azureSubscription: 'angularsamplepipeline'
+      appType: 'webApp'
+      WebAppName: 'AngularPipeline'
+      packageForLinux: '$(Build.ArtifactStagingDirectory)'
       

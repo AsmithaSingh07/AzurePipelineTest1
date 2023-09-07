@@ -19,14 +19,18 @@ steps:
 #   displayName: 'Run a multi-line script'
   - task: Npm@1
     inputs:
-      command: 'install'
-      # customCommand: 'npm install'
+      command: custom  
+      verbose: false  
+      customCommand: 'install -g @angular/cli@13.2.5'
+      
 
   - task: AngularCLI@1
     inputs:
-      command: 'build'
+      command: custom
+      custom: 'run build' 
       prod: false
       DisableAnalytics: false
+      
     
   
   - task: CopyFiles@2
